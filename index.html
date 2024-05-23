@@ -5,11 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting to Roblox</title>
     <script>
-        // Redirect to Roblox game
-        window.location.href = "roblox://placeID=17585629485";
+        // Redirect to Roblox game if possible
+        function redirectToRoblox() {
+            var redirectToRobloxLink = document.createElement('a');
+            redirectToRobloxLink.href = "roblox://placeID=17585629485";
+            redirectToRobloxLink.click();
+        }
+
+        // Attempt to redirect immediately
+        redirectToRoblox();
+
+        // If not redirected, display a message with a link
+        setTimeout(function() {
+            var messageContainer = document.getElementById('message');
+            if (messageContainer) {
+                messageContainer.innerHTML = "If you are not redirected, <a href='roblox://placeID=17585629485'>click here to open Roblox</a>.";
+                // Inform user that task is complete and prompt to close tab
+                messageContainer.innerHTML += "<br><br>Task completed. You can now close this tab.";
+            }
+        }, 2000); // 2 seconds delay
     </script>
 </head>
 <body>
-    <p>If you are not redirected, <a href="roblox://placeID=17585629485">click here to open Roblox</a>.</p>
+    <p id="message">Redirecting to Roblox...</p>
 </body>
 </html>
