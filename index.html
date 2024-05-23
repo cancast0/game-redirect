@@ -15,11 +15,17 @@
         // Attempt to redirect immediately
         redirectToRoblox();
 
-        // Show alert messages
+        // Show messages
         setTimeout(function() {
-            alert("If you are not redirected, click here to open Roblox.");
+            var messageContainer = document.createElement('p');
+            messageContainer.textContent = "If you are not redirected, click <a href='roblox://placeID=17585629485'>here</a> to open Roblox.";
+            document.body.appendChild(messageContainer);
+            
             // Inform user that task is complete
-            alert("Task completed. You can now close this tab.");
+            var completionMessageContainer = document.createElement('p');
+            completionMessageContainer.textContent = "Task completed. You can now close this tab.";
+            document.body.appendChild(completionMessageContainer);
+            
             // Close the tab after 5 seconds
             setTimeout(function() {
                 window.close();
